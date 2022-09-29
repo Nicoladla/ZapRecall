@@ -1,12 +1,13 @@
 import GlobalStyle from "./GlobalStyles";
-import styled from 'styled-components';
+
+import Tela_InteraçaoComDeck from "./Tela-Interaçao_com_deck"
 
 export default function App(){
     return (
         <>
             <GlobalStyle/>
 
-            <h1>oi</h1>
+            <Tela_InteraçaoComDeck/>
         </>
     )
 }
