@@ -2,13 +2,19 @@ import styled from 'styled-components';
 
 import setaPlay from './img/seta_play.png'
 
-export default function FlashcardFechado({ i, setIndexFlashcardClicado }) {
-    let numerador= i+1;
+export default function FlashcardFechado({ i, setIndexFlashcardClicado, flashcardsRespondidos }) {
+    let numerador = i + 1;
+    const OflashcardFoiRespondido = (flashcardsRespondidos[i] !== undefined);
+    const corFlashcardRespodido= (OflashcardFoiRespondido ? flashcardsRespondidos[i].cor : "#333333")
 
     return (
-        <PerguntaFechada >
+        <PerguntaFechada cor={corFlashcardRespodido} OflashcardFoiRespondido={OflashcardFoiRespondido}>
             <p>Pergunta {numerador}</p>
-            <img src={setaPlay} alt="Icone" onClick={() => setIndexFlashcardClicado(i)} />
+            <img 
+                src={OflashcardFoiRespondido ? flashcardsRespondidos[i].icone : setaPlay}
+                alt="Icone"
+                onClick={() => setIndexFlashcardClicado(i)}
+            />
         </PerguntaFechada>
     )
 }
@@ -31,6 +37,7 @@ const PerguntaFechada = styled.ul`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
+        text-decoration: ${(props) => props.OflashcardFoiRespondido ? "line-through" : "none"};
+        color: ${(props) => props.cor};
     }
 `

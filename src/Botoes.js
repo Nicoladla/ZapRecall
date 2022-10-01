@@ -1,14 +1,56 @@
 import styled from 'styled-components';
 
-export default function Botoes() {
+import iconeErro from './img/icone_erro.png'
+import iconeQuase from './img/icone_quase.png'
+import iconeCerto from './img/icone_certo.png'
+
+export default function Botoes(props) {
+    const {
+        indexFlashcardClicado,
+        setIndexFlashcardClicado,
+        flashcardsRespondidos,
+        setFlashcardsRespondidos
+    } = props;
+
+    function registrarFlashCardRespondido(status) {
+        const temFlashcardAberto = (indexFlashcardClicado !== null);
+
+        if (!temFlashcardAberto) {
+            return
+        }
+
+        let statusFlashcard= [...flashcardsRespondidos];
+
+        if (status === "Não lembrei") {
+            statusFlashcard[indexFlashcardClicado] = { cor: "#FF3030", icone: iconeErro }
+
+        } else if (status === "Quase não lembrei") {
+            statusFlashcard[indexFlashcardClicado] = { cor: "#FF922E", icone: iconeQuase }
+
+        } else if (status === "Zap!") {
+            statusFlashcard[indexFlashcardClicado] = { cor: "#2FBE34", icone: iconeCerto }
+
+        }
+
+        setFlashcardsRespondidos(statusFlashcard)
+        setIndexFlashcardClicado(null)
+    }
+
+
     return (
         <FooterConcluidos>
             <div>
-                <button>Não lembrei</button>
+                <button onClick={() => registrarFlashCardRespondido("Não lembrei")}>
+                    Não lembrei
+                </button>
 
-                <button>Quase não lembrei</button>
+                <button onClick={() => registrarFlashCardRespondido("Quase não lembrei")}>
+                    Quase não lembrei
+                </button>
 
-                <button>Zap!</button>
+                <button onClick={() => registrarFlashCardRespondido("Zap!")}>
+                    Zap!
+                </button>
             </div>
 
             <h2>0/4 CONCLUÍDOS</h2>
