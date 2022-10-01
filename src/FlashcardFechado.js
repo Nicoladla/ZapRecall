@@ -2,18 +2,34 @@ import styled from 'styled-components';
 
 import setaPlay from './img/seta_play.png'
 
-export default function FlashcardFechado({ i, setIndexFlashcardClicado, flashcardsRespondidos }) {
+export default function FlashcardFechado({ i, indexFlashcardClicado, setIndexFlashcardClicado, flashcardsRespondidos }) {
     let numerador = i + 1;
     const OflashcardFoiRespondido = (flashcardsRespondidos[i] !== undefined);
-    const corFlashcardRespodido= (OflashcardFoiRespondido ? flashcardsRespondidos[i].cor : "#333333")
+    const corFlashcardRespodido= (OflashcardFoiRespondido ? flashcardsRespondidos[i].cor : "#333333");
+
+    function AbrirFlashcard(){
+
+        if(indexFlashcardClicado !== null){
+            return
+        }
+
+        if(!OflashcardFoiRespondido){
+            setIndexFlashcardClicado(i);
+        }
+    }
 
     return (
-        <PerguntaFechada cor={corFlashcardRespodido} OflashcardFoiRespondido={OflashcardFoiRespondido}>
+        <PerguntaFechada 
+            cor={corFlashcardRespodido} 
+            OflashcardFoiRespondido={OflashcardFoiRespondido}
+            data-identifier="flashcard-index-item"
+        >
             <p>Pergunta {numerador}</p>
             <img 
                 src={OflashcardFoiRespondido ? flashcardsRespondidos[i].icone : setaPlay}
                 alt="Icone"
-                onClick={() => setIndexFlashcardClicado(i)}
+                onClick={AbrirFlashcard}
+                data-identifier= {OflashcardFoiRespondido ? "flashcard-status" : "flashcard-show-btn"}
             />
         </PerguntaFechada>
     )

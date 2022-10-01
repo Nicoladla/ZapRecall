@@ -4,14 +4,19 @@ import styled from 'styled-components';
 
 import setaVirar from './img/seta_virar.png'
 
-export default function FlashcardAberto({flashcard}) {
-
-    const [querMostraAResposta, setQuerMostraAResposta]= useState(false)
+export default function FlashcardAberto({ flashcard, querMostraAResposta, setQuerMostraAResposta }) {
 
     return (
-        <PerguntaAberta querMostraAResposta={querMostraAResposta}>
-            <p>{querMostraAResposta ? flashcard.resposta : flashcard.pergunta}</p>
-            <img src={setaVirar} alt="Icone" onClick={() => setQuerMostraAResposta(true)}/>
+        <PerguntaAberta querMostraAResposta={querMostraAResposta} data-identifier="flashcard">
+            <p data-identifier={querMostraAResposta ? "flashcard-answer" : "flashcard-question"}>
+                {querMostraAResposta ? flashcard.resposta : flashcard.pergunta}
+            </p>
+            <img
+                src={setaVirar}
+                alt="Icone"
+                onClick={() => setQuerMostraAResposta(true)}
+                data-identifier="flashcard-turn-btn"
+            />
         </PerguntaAberta>
     )
 }
@@ -36,7 +41,7 @@ const PerguntaAberta = styled.li`
     justify-content: space-between;
 
     img{
-        display: ${({querMostraAResposta}) => querMostraAResposta ? "none" : "inline"};
+        display: ${({ querMostraAResposta }) => querMostraAResposta ? "none" : "inline"};
         position: absolute;
         bottom: 10px;
         right: 10px;

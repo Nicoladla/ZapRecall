@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import styled from 'styled-components';
 
 import iconeErro from './img/icone_erro.png'
@@ -9,13 +11,17 @@ export default function Botoes(props) {
         indexFlashcardClicado,
         setIndexFlashcardClicado,
         flashcardsRespondidos,
-        setFlashcardsRespondidos
+        setFlashcardsRespondidos,
+        setQuerMostraAResposta,
+        querMostraAResposta,
+        deck
     } = props;
 
-    function registrarFlashCardRespondido(status) {
-        const temFlashcardAberto = (indexFlashcardClicado !== null);
+    const [numeroCardsRespondidos, setNumeroCardsRespondidos]= useState(0)
 
-        if (!temFlashcardAberto) {
+    function registrarFlashCardRespondido(status) {
+
+        if (!querMostraAResposta) {
             return
         }
 
@@ -32,28 +38,32 @@ export default function Botoes(props) {
 
         }
 
-        setFlashcardsRespondidos(statusFlashcard)
-        setIndexFlashcardClicado(null)
+        setFlashcardsRespondidos(statusFlashcard);
+        setNumeroCardsRespondidos(numeroCardsRespondidos+1);
+        setIndexFlashcardClicado(null);
+        setQuerMostraAResposta(false)
     }
 
 
     return (
         <FooterConcluidos>
             <div>
-                <button onClick={() => registrarFlashCardRespondido("Não lembrei")}>
+                <button onClick={() => registrarFlashCardRespondido("Não lembrei")} data-identifier="forgot-btn">
                     Não lembrei
                 </button>
 
-                <button onClick={() => registrarFlashCardRespondido("Quase não lembrei")}>
+                <button onClick={() => registrarFlashCardRespondido("Quase não lembrei")} data-identifier="almost-forgot-btn">
                     Quase não lembrei
                 </button>
 
-                <button onClick={() => registrarFlashCardRespondido("Zap!")}>
+                <button onClick={() => registrarFlashCardRespondido("Zap!")} data-identifier="zap-btn">
                     Zap!
                 </button>
             </div>
 
-            <h2>0/4 CONCLUÍDOS</h2>
+            <h2 data-identifier="flashcard-counter">
+                {numeroCardsRespondidos}/{deck.length} CONCLUÍDOS
+            </h2>
         </FooterConcluidos>
     )
 }
