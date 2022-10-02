@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import styled from 'styled-components';
 
 import setaVirar from './img/seta_virar.png'
