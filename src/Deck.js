@@ -10,13 +10,13 @@ export default function Deck(props) {
         flashcardsRespondidos,
         querMostraAResposta,
         setQuerMostraAResposta,
-        deck
+        deckSelecionado
     } = props;
 
 
     return (
         <Ul>
-            {deck.map((flashcard, i) =>
+            {deckSelecionado.map((flashcard, i) =>
             (
                 indexFlashcardClicado === i
                     ?

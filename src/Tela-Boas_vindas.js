@@ -1,28 +1,63 @@
 import styled from "styled-components"
 
+import decks from "./ListaDecks"
+
 import logo from "./img/logo.png"
 
-export default function BoasVindas({setQuerAbrirODeck}){
-    return(
+export default function BoasVindas({ setQuerAbrirODeck, setDeckSelecionado, deckSelecionado }) {
+
+    function selecionarDeck(e) {
+
+        let itemSelecionado = e.target.value;
+        console.log(itemSelecionado)
+
+        switch (itemSelecionado) {
+            case "React":
+                setDeckSelecionado(decks.react);
+                break;
+
+            case "Naruto":
+                setDeckSelecionado(decks.naruto);
+                break;
+
+            case "DragonBall":
+                setDeckSelecionado(decks.dragonBallZ);
+                break;
+        }
+    }
+
+    function AbrirTelaDoDeck() {
+        const temDeckSelecionado = (deckSelecionado !== null);
+
+        if (temDeckSelecionado) {
+            setQuerAbrirODeck(true);
+
+        } else {
+            alert("Escolha um deck válido")
+        }
+    }
+
+    return (
         <BemVindos>
             <figure>
-                <img src={logo}/>
+                <img src={logo} />
                 <figcaption>ZapRecall</figcaption>
             </figure>
-            <select name="oi">
-                <option>Olaaa boy</option>
-                <option>Olaaa gril</option>
-                <option>chatoo</option>
+            <select onChange={selecionarDeck}>
+                <option>Escolha seu Deck</option>
+                <option value="React">React</option>
+                <option value="Naruto">Naruto</option>
+                <option value="DragonBall">DragonBall Z</option>
             </select>
-            <input type='number' placeholder="Digite sua meta de zaps..."/>
-            <button onClick={() => setQuerAbrirODeck(true)}>
+            <input type='number' placeholder="Digite sua meta de zaps..." />
+            <button onClick={AbrirTelaDoDeck}>
                 Iniciar Recall!
             </button>
         </BemVindos>
     )
 }
 
-const BemVindos= styled.div`
+const BemVindos = styled.div`
     background-color: #FB6B6B;
     width: 100vw;
     min-height: 100vh;
@@ -53,6 +88,7 @@ const BemVindos= styled.div`
 
     select{
         background: #FFFFFF;
+        color: #ADADAD;
         width: 246px;
         height: 43px;
         margin-bottom: 18px;
@@ -69,7 +105,7 @@ const BemVindos= styled.div`
         width: 246px;
         height: 43px;
         margin-bottom: 18px;
-        font-family: 'Roboto';
+        font-family: Arial;
         font-weight: 400;
         font-size: 18px;
         border-radius: 5px;

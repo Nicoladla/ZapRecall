@@ -7,7 +7,9 @@ import Tela_InteraçaoComDeck from "./Tela-Interaçao_com_deck"
 
 export default function App() {
 
-    const [querAbrirODeck, setQuerAbrirODeck] = useState(false)
+    const [querAbrirODeck, setQuerAbrirODeck] = useState(false);
+    const [deckSelecionado, setDeckSelecionado] = useState(null)
+    console.log(deckSelecionado)
 
     return (
         <>
@@ -16,9 +18,13 @@ export default function App() {
             {
                 querAbrirODeck
                     ?
-                    <Tela_InteraçaoComDeck />
+                    <Tela_InteraçaoComDeck deckSelecionado={deckSelecionado}/>
                     :
-                    <Tela_BoasVindas setQuerAbrirODeck={setQuerAbrirODeck} />
+                    <Tela_BoasVindas
+                        setQuerAbrirODeck={setQuerAbrirODeck}
+                        setDeckSelecionado={setDeckSelecionado}
+                        deckSelecionado={deckSelecionado}
+                    />
             }
         </>
     )

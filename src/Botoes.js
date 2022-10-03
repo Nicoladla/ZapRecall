@@ -14,7 +14,7 @@ export default function Botoes(props) {
         setFlashcardsRespondidos,
         setQuerMostraAResposta,
         querMostraAResposta,
-        deck
+        deckSelecionado
     } = props;
 
     const [numeroCardsRespondidos, setNumeroCardsRespondidos]= useState(0)
@@ -61,7 +61,7 @@ export default function Botoes(props) {
             </div>
 
             <h2 data-identifier="flashcard-counter">
-                {numeroCardsRespondidos}/{deck.length} CONCLUÍDOS
+                {numeroCardsRespondidos}/{deckSelecionado.length} CONCLUÍDOS
             </h2>
         </FooterConcluidos>
     )

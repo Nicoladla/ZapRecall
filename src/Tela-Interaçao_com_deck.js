@@ -6,17 +6,7 @@ import Logo from "./Logo"
 import Deck from "./Deck"
 import Botoes from "./Botoes"
 
-export default function InteraçaoComDeck() {
-    const deck = [
-        { pergunta: "O que é JSX?", resposta: "Uma extensão de linguagem do JavaScript" },
-        { pergunta: "O React é __", resposta: "uma biblioteca JavaScript para construção de interfaces" },
-        { pergunta: "Componentes devem iniciar com __", resposta: "letra maiúscula" },
-        { pergunta: "Podemos colocar __ dentro do JSX", resposta: "expressões" },
-        { pergunta: "O ReactDOM nos ajuda __", resposta: "interagindo com a DOM para colocar componentes React na mesma" },
-        { pergunta: "Usamos o npm para __", resposta: "gerenciar os pacotes necessários e suas dependências" },
-        { pergunta: "Usamos props para __", resposta: "passar diferentes informações para componentes " },
-        { pergunta: "Usamos estado (state) para __", resposta: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" },
-    ]
+export default function InteraçaoComDeck({deckSelecionado}) {
 
     const [indexFlashcardClicado, setIndexFlashcardClicado] = useState(null)
     const [flashcardsRespondidos, setFlashcardsRespondidos] = useState([])
@@ -31,7 +21,7 @@ export default function InteraçaoComDeck() {
                 flashcardsRespondidos={flashcardsRespondidos}
                 setQuerMostraAResposta={setQuerMostraAResposta}
                 querMostraAResposta={querMostraAResposta}
-                deck={deck}
+                deckSelecionado={deckSelecionado}
             />
             <Botoes
                 indexFlashcardClicado={indexFlashcardClicado}
@@ -40,7 +30,7 @@ export default function InteraçaoComDeck() {
                 setFlashcardsRespondidos={setFlashcardsRespondidos}
                 setQuerMostraAResposta={setQuerMostraAResposta}
                 querMostraAResposta={querMostraAResposta}
-                deck={deck}
+                deckSelecionado={deckSelecionado}
             />
         </TelaInteraçaoComDeck>
     )
