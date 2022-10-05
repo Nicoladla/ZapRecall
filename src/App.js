@@ -9,7 +9,6 @@ export default function App() {
 
     const [querAbrirODeck, setQuerAbrirODeck] = useState(false);
     const [deckSelecionado, setDeckSelecionado] = useState(null)
-    console.log(deckSelecionado)
 
     return (
         <>

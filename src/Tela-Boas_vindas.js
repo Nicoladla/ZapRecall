@@ -9,7 +9,6 @@ export default function BoasVindas({ setQuerAbrirODeck, setDeckSelecionado, deck
     function selecionarDeck(e) {
 
         let itemSelecionado = e.target.value;
-        console.log(itemSelecionado)
 
         switch (itemSelecionado) {
             case "React":
@@ -31,9 +30,9 @@ export default function BoasVindas({ setQuerAbrirODeck, setDeckSelecionado, deck
 
         if (temDeckSelecionado) {
             setQuerAbrirODeck(true);
-
+ 
         } else {
-            alert("Escolha um deck válido")
+            alert("Escolha um deck")
         }
     }
 
@@ -43,14 +42,14 @@ export default function BoasVindas({ setQuerAbrirODeck, setDeckSelecionado, deck
                 <img src={logo} />
                 <figcaption>ZapRecall</figcaption>
             </figure>
-            <select onChange={selecionarDeck}>
-                <option>Escolha seu Deck</option>
-                <option value="React">React</option>
-                <option value="Naruto">Naruto</option>
-                <option value="DragonBall">DragonBall Z</option>
+            <select onChange={selecionarDeck} data-identifier="deck-selector">
+                <option data-identifier="deck-option">Escolha seu Deck</option>
+                <option value="React" data-identifier="deck-option">React</option>
+                <option value="Naruto" data-identifier="deck-option">Naruto</option>
+                <option value="DragonBall" data-identifier="deck-option">DragonBall Z</option>
             </select>
-            <input type='number' placeholder="Digite sua meta de zaps..." />
-            <button onClick={AbrirTelaDoDeck}>
+            <input type='number' placeholder="Digite sua meta de zaps..." data-identifier="goals-input"/>
+            <button onClick={AbrirTelaDoDeck} data-identifier="start-btn">
                 Iniciar Recall!
             </button>
         </BemVindos>
