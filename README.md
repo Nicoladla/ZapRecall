@@ -17,10 +17,10 @@ Essa aplicação tem funcionalidades básicas:
 
 ---
 
-## Confira o design e usabilidade do game:
+## Confira o design e usabilidade da aplicação:
 
 <p align="start">
-  <img width="600" src="src/img/ZapRecall-Animação.gif" alt="gif">
+  <img width="200" src="src/img/ZapRecall-Animação.gif" alt="gif">
 </p>
 
 - Você pode acessar essa aplicação nesse link:
