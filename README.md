@@ -20,14 +20,11 @@ Essa aplicação tem funcionalidades básicas:
 ## Confira o design e usabilidade do game:
 
 <p align="start">
-  <img width="600" src="src/imagens/JogoDaForca-Animação.gif" alt="Instagram-gif">
+  <img width="600" src="src/img/ZapRecall-Animação.gif" alt="gif">
 </p>
 
 - Você pode acessar essa aplicação nesse link:
-  [https://jogo-da-forca-woad.vercel.app/](https://jogo-da-forca-woad.vercel.app/)
-
-- Você também pode acessar o repositório de outro game clássico, que foi feita usando **HTML**:
-  [https://github.com/Nicoladla/ParrotCardGame](https://github.com/Nicoladla/ParrotCardGame)
+  [https://zap-recall-nicoladla.vercel.app/](https://zap-recall-nicoladla.vercel.app/)
 
 ---
 
@@ -41,12 +38,12 @@ Essa aplicação foi desenvolvida utilizando as tecnologias:
 
 ### Como iniciar o projeto na minha máquina?
 
-- O primeiro passo é você fazer o download do projeto para sua máquina: [Download ZIP](https://github.com/Nicoladla/JogoDaForca/archive/refs/heads/main.zip)
+- O primeiro passo é você fazer o download do projeto para sua máquina: [Download ZIP](https://github.com/Nicoladla/ZapRecall/archive/refs/heads/main.zip)
 
 - Ou então clonar esse repositório através do seu terminal:
 
   ```
-  git clone https://github.com/Nicoladla/JogoDaForca.git
+  git clone https://github.com/Nicoladla/ZapRecall.git
   ```
 
 - Com o projeto na sua máquina, abra o seu editor de código favorito e então, dentro do seu projeto no seu terminal, execute o comando:
